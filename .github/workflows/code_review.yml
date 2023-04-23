@@ -1,0 +1,21 @@
+name: Code review
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: npm
+      - run: npm install
+
+      - name: 360 Code Review
+        uses: dd3tech/360-code-review@1.0.0
+
+
