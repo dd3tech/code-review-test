@@ -2,6 +2,10 @@ function compareDates(date1, date2) {
 	return date1.getTime() === date2.getTime();
 }
 
+function compareDaysBetweenDates(date1, date2) {
+	return Math.floor((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
+}
+
 function createTextWithVoice(text, voice) {
 	const utterance = new SpeechSynthesisUtterance(text);
 	utterance.voice = voice;
@@ -24,4 +28,4 @@ function createStore() {
 	};
 }
 
-export { compareDates, createTextWithVoice, createStore }
+export { compareDates, createTextWithVoice, createStore, compareDaysBetweenDates }
